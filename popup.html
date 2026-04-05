@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AI LMS Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <div class="logo">
+        <h2>AI LMS Assistant</h2>
+      </div>
+      <img src="icons/um2.PNG" width="150" height="28" alt="AI" style="border-radius: 6px;">
+    </div>
+    <img src="icons/um.png" width="28" height="28" alt="AI" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: 50%">
+    
+    <!-- Pilihan AI Provider -->
+    <div class="options-box">
+      <div class="options-title">Select Generative AI</div>
+      <label class="option-item">
+        <input type="radio" name="aiProvider" value="deepseek" checked>
+        <span>DeepSeek</span>
+      </label>
+      <label class="option-item">
+        <input type="radio" name="aiProvider" value="chatgpt">
+        <span>ChatGPT</span>
+      </label>
+    </div>
+
+    <!-- Opsi prompt -->
+    <div class="options-box">
+      <div class="options-title">Select Question</div>
+      <label class="option-item">
+        <input type="checkbox" id="optRingkasan" value="ringkasan" checked>
+        <span>1. Ringkasan materi</span>
+      </label>
+      <label class="option-item">
+        <input type="checkbox" id="optPenjelasan" value="penjelasan" checked>
+        <span>2. Penjelasan tugas</span>
+      </label>
+      <label class="option-item">
+        <input type="checkbox" id="optLangkah" value="langkah" checked>
+        <span>3. Langkah-langkah pengerjaan</span>
+      </label>
+      <label class="option-item">
+        <input type="checkbox" id="optTips" value="tips" checked>
+        <span>4. Tips tambahan</span>
+      </label>
+      <label class="option-item option-divider">
+        <input type="checkbox" id="optDeepThink" value="deepthink">
+        <span>🧠 DeepThink (in development)</span>
+      </label>
+    </div>
+    
+    <div class="task-info" id="taskInfo">
+      <div class="task-status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Mendeteksi halaman...</span>
+      </div>
+      <div class="task-preview" id="taskPreview" style="display: none;">
+        <div class="preview-header">
+          <span>URL tugas yang terdeteksi:</span>
+          <button id="copyTaskBtn" class="icon-btn" title="Salin URL">📋</button>
+        </div>
+        <div id="taskPreviewContent" class="preview-content"></div>
+      </div>
+    </div>
+    
+    <button id="askAIBtn" class="btn-primary" disabled>
+      Tanya AI!
+    </button>
+    
+    <div style="display: flex; gap: 8px; margin-top: 4px;">
+      <button id="refreshBtn" class="btn-secondary" style="flex:1;">🔄 Refresh</button>
+      <button id="uploadBtn" class="btn-secondary" style="flex:1;">📁 Upload File</button>
+    </div>
+    <input type="file" id="fileInput" accept=".pdf,.docx,.xlsx,.pptx" style="display:none">
+    <div id="uploadStatus" class="upload-status"></div>
+    
+    <div class="info-box">
+      <div class="info-title">Rules!</div>
+      <ol>
+        <li>Buka halaman <strong>materi/tugas</strong> di LMS Anda</li>
+        <li>Atau <strong>upload file</strong> (PDF, DOCX, XLSX, PPTX)</li>
+        <li>Pilih AI (DeepSeek atau ChatGPT)</li>
+        <li>Pilih pertanyaan yang ingin diajukan</li>
+        <li>Klik <strong>"Tanyakan ke AI"</strong></li>
+        <li>Chat AI akan terbuka dengan prompt otomatis</li>
+      </ol>
+    </div>
+    
+    <div class="footer">
+      <a href="https://github.com/AdityaWilldan">
+        <img src="icons/image.png" width="150" height="150" alt="AI" style="border-radius: 6px;">
+      </a>
+      <h2>DEVELOPED BY WildanAditia</h2>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

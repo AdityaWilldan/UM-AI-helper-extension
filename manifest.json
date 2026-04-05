@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "AI UM LMS Assistant",
+  "version": "1.4",
+  "description": "Membantu menjelaskan materi dan tugas dari LMS kampus menggunakan DeepSeek Chat atau ChatGPT (gratis, tanpa API key) - Support PDF, DOCX, XLSX, PPTX",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://elearning.universitasmandiri.ac.id/*",
+    "https://*.universitasmandiri.ac.id/*",
+    "https://chat.deepseek.com/*",
+    "https://chat.openai.com/*",
+    "https://chatgpt.com/*",
+    "https://cdnjs.cloudflare.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://elearning.universitasmandiri.ac.id/*",
+        "https://*.universitasmandiri.ac.id/*"
+      ],
+      "js": ["libs/pdf.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI - Bantu Tugas LMS",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "libs/pdf.worker.js",
+        "libs/pdf.js",
+        "libs/jszip.min.js",
+        "libs/xlsx.full.min.js",
+        "libs/mammoth.browser.min.js",
+        "icons/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
