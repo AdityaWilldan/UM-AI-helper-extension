@@ -15,16 +15,26 @@
     </div>
     <img src="icons/um.png" width="28" height="28" alt="AI" style="display: block; margin-left: auto; margin-right: auto; width: 50%; height: 50%">
     
+    <!-- SECTION DETECTED FILES DIHAPUS - Hanya tampil di LMS, tidak di popup -->
+
     <!-- Pilihan AI Provider -->
     <div class="options-box">
       <div class="options-title">Select Generative AI</div>
       <label class="option-item">
         <input type="radio" name="aiProvider" value="deepseek" checked>
-        <span>DeepSeek</span>
+        <span>DeepSeek (pdf recommended)</span>
       </label>
       <label class="option-item">
         <input type="radio" name="aiProvider" value="chatgpt">
-        <span>ChatGPT</span>
+        <span>ChatGPT (general)</span>
+      </label>
+      <label class="option-item">
+        <input type="radio" name="aiProvider" value="kimi">
+        <span>Kimi AI (recommended: xlsx,docx,pptx,pdf)</span>
+      </label>
+      <label class="option-item">
+        <input type="radio" name="aiProvider" value="gemini">
+        <span>Gemini AI</span>
       </label>
     </div>
 
@@ -49,7 +59,7 @@
       </label>
       <label class="option-item option-divider">
         <input type="checkbox" id="optDeepThink" value="deepthink">
-        <span>🧠 DeepThink (in development)</span>
+        <span>DeepThink (in-development)</span>
       </label>
     </div>
     
@@ -58,13 +68,20 @@
         <span class="status-dot" id="statusDot"></span>
         <span id="statusText">Mendeteksi halaman...</span>
       </div>
-      <div class="task-preview" id="taskPreview" style="display: none;">
+      <!-- <div class="task-preview" id="taskPreview" style="display: none;">
         <div class="preview-header">
-          <span>URL tugas yang terdeteksi:</span>
-          <button id="copyTaskBtn" class="icon-btn" title="Salin URL">📋</button>
+          <span>File yang terdeteksi:</span>
+          <button id="copyTaskBtn" class="icon-btn" title="Salin">📋</button>
         </div>
         <div id="taskPreviewContent" class="preview-content"></div>
+      </div> -->
+      <div class="task-preview" id="taskPreview" style="display: none;">
+      <div class="preview-header">
+        <span>File terdeteksi:</span>  <!-- Ubah dari "File yang terdeteksi:" -->
+        <button id="copyTaskBtn" class="icon-btn" title="Salin">📋</button>
       </div>
+      <div id="taskPreviewContent" class="preview-content">File terdeteksi</div>  <!-- Default text -->
+    </div>
     </div>
     
     <button id="askAIBtn" class="btn-primary" disabled>
@@ -79,14 +96,12 @@
     <div id="uploadStatus" class="upload-status"></div>
     
     <div class="info-box">
-      <div class="info-title">Rules!</div>
+      <div class="info-title">Cara Penggunaan:</div>
       <ol>
         <li>Buka halaman <strong>materi/tugas</strong> di LMS Anda</li>
-        <li>Atau <strong>upload file</strong> (PDF, DOCX, XLSX, PPTX)</li>
-        <li>Pilih AI (DeepSeek atau ChatGPT)</li>
-        <li>Pilih pertanyaan yang ingin diajukan</li>
-        <li>Klik <strong>"Tanyakan ke AI"</strong></li>
-        <li>Chat AI akan terbuka dengan prompt otomatis</li>
+        <li>Klik tombol <strong>"Tanya AI"</strong> di samping file di halaman LMS</li>
+        <li>Pilih AI dan pertanyaan di popup ini</li>
+        <li>Klik <strong>"Tanya AI!"</strong></li>
       </ol>
     </div>
     
